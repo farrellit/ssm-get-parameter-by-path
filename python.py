@@ -7,12 +7,8 @@ parameters = []
 while more != False:
     if more:
         args["NextToken"] = more        
-    res = ssm.get_parameters_by_path(
-        Path=os.environ.get('SSM_PATH'),
-        WithDecryption=True
-    )
+    res = ssm.get_parameters_by_path(**args)
     parameters.extend(res['Parameters'])
     more = res.get("NextToken", False)
-
 for secret in parameters:
-    os.environ[secret.get('Name').split('/')[-1]] = secret.get('Value')
+    os.environ[secret.get('Name').split('/')[-1]] = secret.get('Value'
