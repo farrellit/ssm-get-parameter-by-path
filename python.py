@@ -15,4 +15,4 @@ while more != False:
     parameters.extend(res['Parameters'])
     more = res.get("NextToken", False)
 for secret in parameters:
-    print("%s: %s" % secret["Name"], len(secret["Value"]))
+    print("%s: %s" % (secret["Name"], len(secret["Value"])) )
