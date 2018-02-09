@@ -12,7 +12,7 @@ while more != False:
         WithDecryption=True
     )
     parameters.extend(res['Parameters'])
-    more = res.get("NextToken", false)
+    more = res.get("NextToken", False)
 
 for secret in parameters:
     os.environ[secret.get('Name').split('/')[-1]] = secret.get('Value')
