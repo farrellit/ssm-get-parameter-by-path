@@ -9,7 +9,6 @@ while more != False:
         args["NextToken"] = more        
     res = ssm.get_parameters_by_path(**args)
     parameters.extend(res['Parameters'])
-    
     more = res.get("NextToken", False)
 for secret in parameters:
     print("%s: %s", secret["Name"], secret["Value"])
