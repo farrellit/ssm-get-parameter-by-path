@@ -3,7 +3,7 @@ import boto3, os
 more = None
 args = dict(
     Path=os.environ.get('SSM_PATH'),
-    WithDecryption=True
+    WithDecryption=True,
     Recursive=True
 )
 ssm = boto3.client('ssm')
